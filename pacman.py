@@ -113,22 +113,29 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
-        else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+       if valid(point + course):
+           point.move(course)
+       else:
+           # Opciones de dirección posibles
+           options = [
+               vector(ghost_velocity, 0),
+               vector(-ghost_velocity, 0),
+               vector(0, ghost_velocity),
+               vector(0, -ghost_velocity),
+           ]
+           # Filtramos solo las direcciones válidas (sin chocar con paredes)
+           options = [v for v in options if valid(point + v)]
 
-        up()
-        goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+
+           # Si hay opciones, elegimos la que más acerque al pacman
+           if options:
+               plan = min(options, key=lambda v: abs((point + v) - pacman))
+               course.x, course.y = plan.x, plan.y
+
+
+       up()
+       goto(point.x + 10, point.y + 10)
+       dot(20, 'red')
 
     update()
 

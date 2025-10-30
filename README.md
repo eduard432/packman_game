@@ -28,6 +28,7 @@ Este es un juego arcade clásico donde controlas a Pacman a través de un laberi
 
 ## Extra
 - Los fantasmas son más inteligentes
+- Los fantasmas son más rápidos
 
 ## 🔧 Requisitos
 

@@ -26,6 +26,9 @@ Este es un juego arcade clásico donde controlas a Pacman a través de un laberi
 - **Laberinto azul**: Paredes que delimitan el movimiento
 - **Sistema de puntuación**: Se muestra en la esquina superior derecha
 
+## Extra
+- Los fantasmas son más inteligentes
+
 ## 🔧 Requisitos
 
 ```bash
